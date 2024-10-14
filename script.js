@@ -2,7 +2,7 @@
 const githubUsername = '321david123';
 
 // List of repository names to display (replace with your desired repositories)
-const repositoriesToDisplay = ['upgraded-global-chat', 'images', 'repo3'];
+const repositoriesToDisplay = ['finalruedatec','upgraded-global-chat'];
 
 // Show loading indicator
 const loading = document.getElementById('loading');
@@ -21,12 +21,15 @@ fetch(`https://api.github.com/users/${githubUsername}/repos`, {
         return response.json();
     })
     .then(data => {
+        // console.log(data)
         const repoList = document.getElementById('repo-list');
 
         // Filter repositories
+        // console.log(repoList)
         const filteredRepos = data.filter(repo => repositoriesToDisplay.includes(repo.name));
-
+        // console.log(filteredRepos)
         if (filteredRepos.length === 0) {
+            // console.log('here')
             repoList.innerHTML = '<p class="text-center">No repositories to display.</p>';
             return;
         }
