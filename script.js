@@ -2,8 +2,12 @@
 const githubUsername = '321david123';
 
 // List of repository names to display (replace with your desired repositories)
-const repositoriesToDisplay = ['finalruedatec','upgraded-global-chat'];
-
+const repositoriesToDisplay = ['finalruedatec','upgraded-global-chat','mentalmentecapaces'];
+const repoImages = {
+    'finalruedatec': 'images/project-images/finalruedatec.png',
+    'upgraded-global-chat': 'images/project-images/upgraded-global-chat.png',
+    'mentalmentecapaces': 'images/project-images/mentalmentecapaces.png'
+};
 // Show loading indicator
 const loading = document.getElementById('loading');
 loading.style.display = 'block';
@@ -44,12 +48,15 @@ fetch(`https://api.github.com/users/${githubUsername}/repos`, {
             card.className = 'card repo-card';
 
             // Optional: Add repository image if available
-            // const cardImage = document.createElement('img');
-            // cardImage.className = 'card-img-top';
-            // cardImage.src = 'path_to_image.jpg'; // Replace with your image path
-            // cardImage.alt = `${repo.name} image`;
-            // card.appendChild(cardImage);
-
+            if (repoImages[repo.name]) { // Check if image exists for the repo
+                console.log('hi')
+                const cardImage = document.createElement('img');
+                cardImage.className = 'card-img-top';
+                cardImage.src = repoImages[repo.name];
+                cardImage.alt = `${repo.name} image`;
+                card.appendChild(cardImage);
+            }
+        
             // Create card body
             const cardBody = document.createElement('div');
             cardBody.className = 'card-body d-flex flex-column';

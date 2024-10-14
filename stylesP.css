@@ -18,9 +18,8 @@ header {
 }
 
 header .container {
-    background-color: rgba(0, 0, 0, 0.5);
     padding: 30px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 /* Repository Cards */
